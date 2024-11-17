@@ -21,7 +21,7 @@ namespace LearningRabbitMQ.Bus
             var message = context.Message;
            _logger.LogInformation($"Processando Relatório Id: {message.Id} Nome: {message.Name}");
 
-           await Task.Delay(10000);
+           await Task.Delay(120000);
            var relatorio = Lista.Relatorios.FirstOrDefault(x => x.Id == message.Id);
            if(relatorio is not null)
            {

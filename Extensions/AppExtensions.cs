@@ -16,7 +16,10 @@ namespace LearningRabbitMQ.Extensions
                 busConfigurator.AddConsumer<RelatorioSolicitadoEventConsumer>();
                 busConfigurator.UsingRabbitMq((ctx, cfg)=>
                 {
-                    cfg.Host(new Uri("amqp://localhost:5672"), host=>
+                    //TODO: salvar no env
+
+                    //Ao usar o docker compose, posso simplesmente passar o nome do serviço ao invés do ip dele
+                    cfg.Host(new Uri("amqp://rabbitmq:5672"), host=>
                     {
                         host.Username("guest");
                         host.Password("guest");
